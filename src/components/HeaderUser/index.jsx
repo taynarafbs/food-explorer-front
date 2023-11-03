@@ -28,7 +28,7 @@ export function HeaderUser({ handleSearch }) {
       </div>
       <Button
         className="newPlate"
-        title="Pedidos"
+        title="Pedidos (0)"
         icon={TfiReceipt}
       />
 
