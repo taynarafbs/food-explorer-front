@@ -17,7 +17,7 @@ export function SignUp () {
                 <label htmlFor="name">
                  Seu nome
                 <Input
-                    placeholder="Exemplo:Maria da Silva"
+                    placeholder="Exemplo: Maria da Silva"
                     type="text"
                     name="name"
                     id="name"

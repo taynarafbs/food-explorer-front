@@ -55,15 +55,24 @@ export const Form = styled.form`
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
     display: flex;
     flex-direction: column;
-    gap: 8px;
     width: 100%;
+  
+  }
+
+  input {
+    text-align: left;
+
+  }
+
+  button {
+    width: 348px;
   }
 
   > a {
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
     font-size: 14px;
     font-family: "Poppins", sans-serif;
-    margin-top: 32px;
+    margin-top: 3px;
   }
 
 `;

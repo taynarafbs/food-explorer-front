@@ -11,7 +11,6 @@ export const Background = styled.div`
   justify-content: center;
   align-items: center;
   border: none;
-  
 
   > h1 {
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
@@ -26,11 +25,11 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
 `;
 
 export const Form = styled.form`
   padding: 64px;
-
   width: 100%;
   max-width: 476px;
   display: flex;
@@ -56,6 +55,19 @@ export const Form = styled.form`
     flex-direction: column;
     gap: 8px;
     width: 100%;
+    margin-bottom: 3px;
+    margin-top: 3px;
+
+  }
+
+  input {
+    text-align: left;
+
+  }
+
+  button {
+    margin-top: 32px;
+    width: 348px;
   }
 
   > a {
@@ -63,6 +75,7 @@ export const Form = styled.form`
     font-size: 14px;
     font-family: "Poppins", sans-serif;
     margin-top: 32px;
+    
   }
 `;
 

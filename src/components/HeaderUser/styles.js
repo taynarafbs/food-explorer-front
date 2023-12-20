@@ -51,6 +51,7 @@ export const Container = styled.div`
 export const Logout = styled.button`
     background: none;
     border: none;
+    margin-top: auto;
 
     > svg {
         color: ${( { theme }) => theme.COLORS.LIGHT_100};

@@ -1,19 +1,63 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
-    margin-left: 2.4rem;
+  margin: 28px 0 28px;
+  width: 100%;
+  position: relative;
+
+    .carousel::-webkit-scrollbar {
+        display: none;
+    }
+
+    > .CarouselSection {
+        position: relative;
+
+        > .carousel {
+        overflow-x: auto;
+        flex-flow: row nowrap;
+        scroll-behavior: smooth;
+
+            .cardSection {
+                width: 100%;
+                display: flex;
+                flex-direction: space-between;
+                align-items: flex-end;
+                gap: 27px;
+                flex-shrink: 0;
+                scroll-snap-align: end;
+            }
+
+            .arrow-left,
+            .arrow-right {
+                align-items: center;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                border: none;
+                color: ${({ theme }) => theme.COLORS.LIGHT_100};
+                width: 5px;
+                background: transparent;
+            }
+
+            .arrow-left {
+                left: -40px;
+                right: auto;
+            }
+
+            .arrow-right {
+                left: auto;
+                right: 0;
+            }
+        }
+    }
 
     > h2 {
-        font-family: 'Poppins';
-        font-weight: 500;
-        font-size: clamp(1.8rem,0.72rem + 1.489vw, 2.5rem);
-        line-height: 140%;
+        padding-bottom: 16px;
+        margin-bottom: 23px;
 
-        margin-bottom: 2.4rem;
-        color: ${({ theme }) => theme.COLORS.LIGHT_300};
-
-        font-size: clamp(1.8rem,0.72rem + 1.489vw, 2.5rem);
-        font-weight: 500;
-    
+        font-size: 32px;
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
+        font-weight: 400;
     }
+
 `;

@@ -5,6 +5,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  
 
   > label {
   font-family: ${({ theme }) => theme.FONT.FONT_ROBOTO};
@@ -21,20 +25,22 @@ export const Field = styled.div`
   height: 4.8rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   padding: 1.2rem 1.4rem;
-
+  margin-top: auto;
 
   background-color: ${({ theme }) => theme.COLORS.DARK_800};
 
   border-radius: 8px;
 
- 
 
   > input {
   width: 100%;
-
+  
   font-family: ${({ theme }) => theme.FONT.FONT_ROBOTO};
+  text-align: center;
+  
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 100%;
@@ -62,4 +68,5 @@ export const Field = styled.div`
   color: ${({ theme }) => theme.COLORS.LIGHT_500};
   }
   } 
+  
 `;

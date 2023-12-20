@@ -7,9 +7,12 @@ export const Container = styled.button`
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
   height: 48px;
+  width: 216px;
   border: none;
   border-radius: 5px;
   padding: 1.2rem 2.4rem;
+  margin-top: auto;
+
 
   font-weight: 500;
   font-family: "Poppins", sans-serif;
