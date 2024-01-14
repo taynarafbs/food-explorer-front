@@ -15,16 +15,16 @@ export function Dish() {
 
 
   return (
-      <Container>
-        {isAdmin ? <HeaderAdmin /> : <HeaderUser />}
-        <Form>
-          <button className="goBack" type="button">
-            <FiChevronLeft />
-            <h5>voltar</h5>
-          </button>
-          {plate && (
+    <Container>
+      {isAdmin ? <HeaderAdmin /> : <HeaderUser />}
+      <Form>
+        <button className="goBack" type="button">
+          <FiChevronLeft />
+          <h5>voltar</h5>
+        </button>
+        {plate && (
           <main>
-            <img className="plateImg" src={FoodImg} alt="Mask group"/>
+            <img className="plateImg" src={FoodImg} alt="Mask group" />
 
             <div className="dishInformation">
               <h1>{plate.title}</h1>
@@ -42,7 +42,7 @@ export function Dish() {
                   <div className="decreaseOrAdd">
                     <FiMinus type="button" />
                     <span>{quantity}</span>
-                    <FiPlus type="button"  />
+                    <FiPlus type="button" />
                   </div>
                   <Button className="dishAdd" title="incluir R$:">
                     <p>{plate.price * quantity}</p>
@@ -52,8 +52,8 @@ export function Dish() {
             </div>
           </main>
         )}
-        </Form>
-        <Footer />
+      </Form>
+      <Footer />
     </Container>
   );
 }

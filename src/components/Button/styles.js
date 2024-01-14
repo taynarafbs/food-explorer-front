@@ -25,6 +25,8 @@ export const Container = styled.button`
   white-space: nowrap;
   align-items: center;
 
-
+  @media (max-width: 1000px) {
+    
+  }
 `;
 

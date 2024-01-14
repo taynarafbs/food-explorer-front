@@ -60,4 +60,33 @@ export const Container = styled.section`
         font-weight: 400;
     }
 
+    @media (max-width: 1000px) {
+        width: 100%;
+
+        > h2 {
+            font-size: 18px;
+            color: ${({ theme }) => theme.COLORS.LIGHT_100};
+            font-weight: 400;
+        }
+
+        > .CarouselSection {
+            > .carousel {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                .cardSection {
+                    max-width: 100px;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 24px;
+                }
+
+                .arrow-left,
+                .arrow-right {
+                    display: none;
+                }
+            }
+        }
+    }
+
 `;

@@ -4,7 +4,7 @@ import backgroundImg from '../../assets/polygon1.png';
 export const Background = styled.div`
   background: url(${backgroundImg});
   background: transparent;
-  padding: 300px;
+  padding: 200px;
   display: flex;
   flex-direction: row;
   gap: 19px;
@@ -17,6 +17,19 @@ export const Background = styled.div`
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
     font-size: 42px;
   }
+
+  @media (max-width: 1000px) {
+    padding: 0;
+    
+    h1 {
+      font-size: 37.2431px;
+    }
+
+    > img {
+      width: 43.31px;
+      height: 43.31px;
+    }
+  }
 `;
 
 
@@ -27,6 +40,13 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 1000px) {
+    max-width: 428px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const Form = styled.form`
@@ -73,6 +93,21 @@ export const Form = styled.form`
     font-size: 14px;
     font-family: "Poppins", sans-serif;
     margin-top: 3px;
+  }
+
+  @media (max-width: 1000px) {
+    background-color: transparent;
+
+    max-width: 476px;
+
+    > h1 {
+      display: none;
+    }
+
+    button {
+      width: 300px;
+    }
+
   }
 
 `;

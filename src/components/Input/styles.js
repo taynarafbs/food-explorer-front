@@ -7,7 +7,7 @@ export const Container = styled.div`
   gap: 1.6rem;
   align-items: center;
   justify-content: center;
-  margin-top: auto;
+
   
 
   > label {
@@ -18,6 +18,7 @@ export const Container = styled.div`
 
   color: ${({ theme }) => theme.COLORS.LIGHT_400};
   }
+  
 `;
 
 export const Field = styled.div`

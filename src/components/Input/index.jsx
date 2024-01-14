@@ -6,8 +6,8 @@ export function Input({ icon: Icon, size, title, id, ...rest }) {
     <Container>
       <label htmlFor={id}>{title}</label>
       <Field>
-        {Icon && <Icon color={theme.COLORS.LIGHT_400} size={!size && '24'} 
-         style={{alignItems: 'center'}} />}
+        {Icon && <Icon color={theme.COLORS.LIGHT_400} size={!size && '24'}
+          style={{ alignItems: 'center' }} />}
         <input id={id} {...rest} />
       </Field>
     </Container>

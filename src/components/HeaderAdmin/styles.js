@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 100%;
-    background: ${({ theme })=> theme.COLORS.DARK_600};
+    background: ${({ theme }) => theme.COLORS.DARK_600};
     display: grid;
     grid-template-columns: 9fr 1fr 1fr;
     padding: 2.4rem 12.3rem;
@@ -51,6 +51,35 @@ export const Container = styled.div`
         }
     }
 
+    @media (max-width: 1000px) {
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 56px 28px 24px;
+
+        .menu {
+            display: inline;
+        }
+        
+        > .test {
+            > .admin {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .input {
+                display: none;
+            }
+        }
+
+        .newPlate {
+            display: none;
+        }
+    }
+
+
+
 
 
 `;
@@ -61,10 +90,13 @@ export const Logout = styled.button`
     margin-top: auto;
 
     > svg {
-        color: ${( { theme }) => theme.COLORS.LIGHT_100};
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
         font-size: 24px;
         
     }
 
+    @media (max-width: 1000px) {
+        display: none;
+    }
 `;
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.footer `
+export const Container = styled.footer`
     width:100%;
     flex-shrink: 0;
     grid-area: footer;
@@ -18,8 +18,22 @@ export const Container = styled.footer `
         font-weight: 500;
     }
 
+    @media (max-width: 1000px) {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 8px;
+        align-items: center;
+        white-space: nowrap;
+        padding: 2.4rem 10%;
 
-
+        > h4 {
+            font-weight: 400;
+            font-family: "DM Sans";
+            font-size: 12px;
+        }
+    }
 
 `;
 
@@ -39,6 +53,11 @@ export const Logo = styled.div`
 
     }
 
-
+    @media (max-width: 1000px) {
+        
+        h1 {
+            font-size: 1.4rem;
+        }
+    }
 `;
 
