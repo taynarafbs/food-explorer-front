@@ -38,6 +38,7 @@ export const Form = styled.div`
         justify-content: space-between;
         gap: 4.8rem;
         align-items: center;
+        
 
         img {
             max-width: 39rem;
@@ -47,6 +48,7 @@ export const Form = styled.div`
             display: flex;
             flex-direction: column;
             gap: 2.4rem;
+
 
             h1 {
                 font-size: 4rem;
@@ -59,14 +61,15 @@ export const Form = styled.div`
             }
 
             .tags {
-                display: flex;
-                flex-direction: row;
-                gap: 10px;
+              display: flex;
+              flex-wrap: wrap;
+              gap: 10px;
+              
             }
 
             .dishAdd {
                 max-width: 131px;
-
+                
                 p {
                     font-size: 1.4rem;
                 }
@@ -76,7 +79,7 @@ export const Form = styled.div`
         .quantity {
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: left;
             gap: 3.3rem;
 
             .decreaseOrAdd {

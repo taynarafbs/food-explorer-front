@@ -23,7 +23,7 @@ export function EditDish() {
               voltar
             </button>
           </header>
-          <h1>Adicionar prato</h1>
+          <h1>Editar prato</h1>
           <div className="FirstInformation">
             <div className="dishImage">
               <h5>Imagem do prato</h5>
