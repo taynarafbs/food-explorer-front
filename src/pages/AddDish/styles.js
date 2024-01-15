@@ -11,6 +11,30 @@ export const Container = styled.div`
   input[type="file"] {
     display: none;
   }
+
+  .button {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+
+    Button {
+      display: flex;
+      width: 172px;
+      align-items: center;
+      text-align: center;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+
+    > main {
+      width: 100%;
+    }
+  }
 `;
 
 export const Form = styled.form`
@@ -96,20 +120,48 @@ export const Form = styled.form`
     }
   }
 
-.button {
+  @media (max-width: 1000px) {
+    padding: 1rem 3.2rem 4.4rem;
     display: flex;
-    width: 100%;
-    justify-content: flex-end;
-    margin-top: 16px;
-
-    Button {
+    flex-direction: column;
+    gap: 24px;
+    
+    > header {
+      > button {
+        font-size: 16px;
+      }
+    }
+    > .FirstInformation {
       display: flex;
-      width: 172px;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 24px;
+      
+    }
+
+    > .additionalInformation {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 70px;
+    }
+
+    > .description {
+      margin-bottom: 2.4rem;
+    }
+
+    > .button {
+      display: flex;
+      justify-content: center;
       align-items: center;
-      text-align: center;
-      font-size: 14px;
-      white-space: nowrap;
-      background: ${({ theme }) => theme.COLORS.TOMATO_400};
+      gap: 10px;
+      
+  
+      Button {
+        padding: 0px;
+        align-items: center;
+        
+      }
     }
   }
 `;  

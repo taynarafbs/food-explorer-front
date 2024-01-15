@@ -74,6 +74,7 @@ export const Container = styled.section`
                 width: 100%;
                 display: flex;
                 flex-direction: row;
+
                 .cardSection {
                     max-width: 100px;
                     display: flex;

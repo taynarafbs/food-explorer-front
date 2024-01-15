@@ -7,7 +7,6 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
 `;
 
 export const Form = styled.div`
@@ -76,7 +75,7 @@ export const Form = styled.div`
             justify-content: center;
             align-items: center;
 
-            .ImageHeader { 
+            .imageHeader {
                 width: 50%;
                 min-width: 19.1rem;
                 height: auto;
@@ -96,7 +95,7 @@ export const Form = styled.div`
                     white-space: nowrap;
                     line-height: 140%;
                 }
-
+                
                 p {
                     font-size: 1.2rem;
                     font-weight: 400;

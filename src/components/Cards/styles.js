@@ -107,9 +107,9 @@ export const Container = styled.div`
     > .plates {
       main {
         > .imgPlate {
-          align-items: center;
-          display: flex;
-          justify-content: center;
+            align-items: center;
+            display: flex;
+            justify-content: center;
           img {
             max-width: 88px;
           }
@@ -136,6 +136,7 @@ export const Container = styled.div`
             flex-direction: column;
             gap: 1.6rem;
             align-items: center;
+            
             .decreaseOrAdd {
               display: flex;
               flex-direction: row;

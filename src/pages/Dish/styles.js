@@ -8,6 +8,10 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 
+    @media (max-width: 1000px) {
+    width: 100%;
+  }
+
 `;
 
 export const Form = styled.div`
@@ -101,5 +105,65 @@ export const Form = styled.div`
         }
 
     }
+
+    @media (max-width: 1000px) {
+    padding: 10% 20%;
+    align-items: center;
+
+    .goBack {
+      align-self: start;
+      h5 {
+        font-size: 24px;
+      }
+    }
+
+    > main {
+      display: flex;
+      flex-direction: column;
+
+      img {
+        width: 100%;
+        max-width: 26.4rem;
+      }
+
+      .dishInformation {
+        max-width: 316px;
+        display: flex;
+        align-items: center;
+
+        h1 {
+          white-space: nowrap;
+          font-size: 2.5rem;
+        }
+
+        p {
+          font-size: 1.6rem;
+          text-align: center;
+        }
+
+        .tags {
+          display: flex;
+          flex-direction: row;
+          gap: 24px;
+        }
+
+        .dishAdd {
+          width: 100%;
+        }
+      }
+
+      .quantity {
+        .decreaseOrAdd {
+          font-size: 2.4rem;
+        }
+        .dishAdd {
+          width: 100%;
+          p {
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+  }
 
 `;

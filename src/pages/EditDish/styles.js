@@ -11,6 +11,34 @@ export const Container = styled.div`
   input[type="file"] {
     display: none;
   }
+
+
+  .button {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 16px;
+
+    Button {
+      display: flex;
+      
+      width: 172px;
+      align-items: center;
+      text-align: center;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+    
+    > main {
+      width: 100%;
+    }
+  }
 `;
 
 export const Form = styled.form`
@@ -98,30 +126,57 @@ export const Form = styled.form`
     }
   }
 
-  .button {
-    display: flex;
-    width: 100%;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 16px;
-
-    Button {
-      display: flex;
-      
-      width: 172px;
-      align-items: center;
-      text-align: center;
-      font-size: 14px;
-      white-space: nowrap;
-    }
-  
-  }
   #buttonExcluir {
     background: ${({ theme }) => theme.COLORS.DARK_800};
   }
 
   #buttonSalvar {
     background: ${({ theme }) => theme.COLORS.TOMATO_300};
+  }
+
+
+  @media (max-width: 1000px) {
+    padding: 10px 32px 44px;
+    display: flex;
+    flex-direction: column;
+
+
+    > header {
+      > button {
+        font-size: 16px;
+        
+      }
+    }
+    > .FirstInformation {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 24px;
+
+    }
+
+    > .additionalInformation {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 70px;
+      
+    }
+
+    > .description {
+      margin-bottom: 2.4rem;
+    }
+
+    > .button {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      justify-content: center;
+      Button {
+        padding: 0;
+        align-items: center;
+      }
+    }
   }
 
 `;  
