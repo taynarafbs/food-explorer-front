@@ -8,37 +8,37 @@ import { SearchInput } from "../SearchInput";
 import { Container, Logout } from "./styles";
 
 export function HeaderAdmin({ handleSearch }) {
-  
-  return (
-    <Container>
-        <div className="menu">
-            olá!
-        </div>
-        <div className="test">
-            <div className="admin">
-                <div className="logo">
-                    <img src={Polygon} alt="" />
-                    <h3>food explorer</h3>
+
+    return (
+        <Container>
+            <div className="menu">
+                olá!
+            </div>
+            <div className="test">
+                <div className="admin">
+                    <div className="logo">
+                        <img src={Polygon} alt="" />
+                        <h3>food explorer</h3>
+                    </div>
+                    <p>admin</p>
                 </div>
-                <p>admin</p>
+
+                <div className="input">
+                    <SearchInput />
+                </div>
             </div>
 
-            <div className="input">
-                <SearchInput/>
-            </div>
-        </div>
+            <Button
+                className="newPlate"
+                title="Novo Prato"
+            />
 
-       <Button
-          className="newPlate"
-          title="Novo Prato"
-        />
-            
-        <Logout>
-            <FiLogOut />
-        </Logout>
-      
-    </Container>
-  );
+            <Logout>
+                <FiLogOut />
+            </Logout>
+
+        </Container>
+    );
 
 };
 
