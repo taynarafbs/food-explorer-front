@@ -1,12 +1,25 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Container, Form, Background } from './styles';
+import { useAuth } from '../../hooks/auth';
+
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import Polygon from "../../assets/Polygon1.png";
 
+import { Container, Form, Background } from './styles';
 
 export function SignIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { signIn } = useAuth();
+
+  function handleSignIn() {
+    signIn({ email, password })
+  }
+
+
   return (
     <Container>
       <Background>
@@ -24,6 +37,7 @@ export function SignIn() {
             type="text"
             name="email"
             id="email"
+            onChange={e => setEmail(e.target.value)}
           />
         </label>
 
@@ -34,11 +48,11 @@ export function SignIn() {
             type="password"
             name="senha"
             id="senha"
+            onChange={e => setPassword(e.target.value)}
           />
         </label>
 
-
-        <Button title={'ENTRAR'} background={'#750310'} />
+        <Button title={'ENTRAR'} onClick={handleSignIn} />
 
         <Link to="/signup" >Criar uma conta</Link>
 

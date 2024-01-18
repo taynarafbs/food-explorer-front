@@ -1,8 +1,6 @@
 import styled from 'styled-components';
-import backgroundImg from '../../assets/polygon1.png';
 
 export const Background = styled.div`
-  background: url(${backgroundImg});
   background: transparent;
   padding: 200px;
   display: flex;
