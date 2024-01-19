@@ -7,11 +7,11 @@ import Food2 from '../../assets/Food2.png';
 import { Button } from "../Button";
 import { Container } from "./styles";
 
-export function Cards(){
+export function Cards() {
     return (
         <Container>
             <div className="icon">
-                <FiEdit2/>
+                <FiEdit2 />
             </div>
             <button className="favorite" type="button">
                 <AiFillHeart color="#FFFFFF" size={24} />
@@ -30,14 +30,14 @@ export function Cards(){
                     <h1>Spaguetti Gambe</h1>
                     <p>Massa fresca com camarões e pesto</p>
                     <h5>R$ 79,97</h5>
-                            
+
                     <div className="includePlates">
                         <div className="decreaseOrAdd">
                             <FiMinus type="button" />
                             <span>01</span>
                             <FiPlus type="button" />
-                    </div>
-                    <Button className="dishAdd" title="incluir" />
+                        </div>
+                        <Button className="dishAdd" title="incluir" />
                     </div>
                 </div>
             </div>

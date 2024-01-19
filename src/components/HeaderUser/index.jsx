@@ -1,5 +1,6 @@
 import { FiLogOut } from "react-icons/fi";
 import { TfiReceipt } from "react-icons/tfi";
+import { useAuth } from "../../hooks/auth";
 
 import Polygon from "../../assets/polygon1.png";
 
@@ -9,6 +10,8 @@ import { SearchInput } from "../SearchInput";
 import { Container, Logout } from "./styles";
 
 export function HeaderUser({ handleSearch }) {
+  const { signOut } = useAuth();
+
 
   return (
     <Container>
@@ -32,7 +35,7 @@ export function HeaderUser({ handleSearch }) {
         icon={TfiReceipt}
       />
 
-      <Logout>
+      <Logout onClick={signOut}>
         <FiLogOut />
       </Logout>
 

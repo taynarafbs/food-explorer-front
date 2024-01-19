@@ -104,16 +104,5 @@ export const Form = styled.div`
             }
         }
     }
-    
-    .goBack{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        background-color: transparent;
-        border: none;
-        color: ${({ theme }) => theme.COLORS.LIGHT_100};
-        font-size: 2.4rem;
-    }
 
 `;

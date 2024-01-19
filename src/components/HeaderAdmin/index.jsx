@@ -1,5 +1,5 @@
 import { FiLogOut } from "react-icons/fi";
-
+import { useAuth } from "../../hooks/auth";
 import Polygon from "../../assets/polygon1.png";
 
 import { Button } from "../Button";
@@ -8,6 +8,7 @@ import { SearchInput } from "../SearchInput";
 import { Container, Logout } from "./styles";
 
 export function HeaderAdmin({ handleSearch }) {
+    const { signOut } = useAuth();
 
     return (
         <Container>
@@ -33,7 +34,7 @@ export function HeaderAdmin({ handleSearch }) {
                 title="Novo Prato"
             />
 
-            <Logout>
+            <Logout onClick={signOut}>
                 <FiLogOut />
             </Logout>
 

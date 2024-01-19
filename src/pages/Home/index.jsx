@@ -1,8 +1,8 @@
-import { FiChevronLeft } from "react-icons/fi";
+
 import { Container, Form } from "./styles";
 import { Footer } from '../../components/Footer';
 import FoodImg from '../../assets/FoodImage.png';
-import { HeaderAdmin } from "../../components/HeaderAdmin";
+import { HeaderUser } from "../../components/HeaderUser";
 
 import { Section } from "../../components/Section";
 
@@ -11,7 +11,7 @@ export function Home(cards,) {
 
   return (
     <Container>
-      <HeaderAdmin />
+      <HeaderUser />
       <Form>
         <div className="ImageHome">
           <img className="imageHeader" src={FoodImg} alt="FoodImage" />
@@ -27,10 +27,6 @@ export function Home(cards,) {
         </div>
 
 
-        <button className="goBack" type="button">
-          <FiChevronLeft />
-
-        </button>
       </Form>
       <Footer />
     </Container>
