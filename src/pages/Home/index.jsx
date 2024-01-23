@@ -8,6 +8,17 @@ import { Section } from "../../components/Section";
 
 export function Home(cards,) {
 
+  // console.log(dishes)
+  // console.log(user)
+  /*
+  todo:
+  - fazer o wrapper pra nao ficar so em uma linha
+  - fazer o controle do amount correlacionado com o prato (pode ser o pedido mermo) +1 -1 nao mudar em todos
+  - fazer o controle de detalhes do prato (favoritado?)
+  - formacao de preço
+  - rota de edicao
+  - botao favorito ser um toggle (liga e desliga)
+  */
 
   return (
     <Container>
