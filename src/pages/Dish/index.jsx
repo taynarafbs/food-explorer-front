@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { api } from "../../services/api";
 
@@ -18,6 +18,7 @@ export function Dish() {
   - usar o use effect mermo
   - useState usando o dish e setDish (singular pq vc ta dentro do detalhe)
   - colocar as informacoes especificas aqui dentro
+  - header admin e header user 
   
   dica:
   - use effect é o hook para ciclo de vida do react
@@ -29,18 +30,35 @@ export function Dish() {
   const params = useParams();
 
   const [quantity, setQuantity] = useState(0);
+  const [currentTotal, setCurrentTotal] = useState(0);
+  const [formattedPrice, setFormattedPrice] = useState(0);
+
+  const parsePrice = (price) => {
+    return parseFloat((parseFloat(price).toFixed(2)));
+  }
+
+  useEffect(() => {
+    if (data && data.price && !formattedPrice) {
+      const resultCalc = parsePrice(data.price.replace(',', '.'));
+      setFormattedPrice(resultCalc);
+    }
+  }, [data]);
+
+  const handleIncrease = () => {
+    const newQuantity = quantity + 1;
+    const newTotal = parsePrice(currentTotal + formattedPrice);
+    setQuantity(newQuantity);
+    setCurrentTotal(newTotal);
+  }
 
   const handleDecrease = () => {
     if (quantity > 0) {
-      setQuantity(quantity - 1);
+      const newQuantity = quantity - 1;
+      const newTotal = parsePrice(currentTotal - formattedPrice);
+      setQuantity(newQuantity);
+      setCurrentTotal(newTotal);
     }
   }
-
-  const handleIncrease = () => {
-    setQuantity(quantity + 1);
-  }
-
-
 
   return (
     <Container>
@@ -67,8 +85,8 @@ export function Dish() {
                 <span>{quantity}</span>
                 <FiPlus type="button" onClick={handleIncrease} />
               </div>
-              <Button className="dishAdd" title="incluir R$:">
-                <p>{data.price * quantity}</p>
+              <Button className="dishAdd" title="incluir ∙ R$:">
+                <p>{currentTotal === 0 ? formattedPrice.toLocaleString('pt-BR') : currentTotal.toLocaleString('pt-BR')}</p>
               </Button>
             </div>
           </div>
