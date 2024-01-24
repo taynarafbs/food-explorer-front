@@ -5,15 +5,9 @@ import FoodImg from '../../assets/FoodImage.png';
 import { HeaderUser } from "../../components/HeaderUser";
 
 import { Section } from "../../components/Section";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { api } from "../../services/api";
 
 export function Home(cards,) {
 
-  const navigate = useNavigate();
-  const { state } = useLocation();
-  const { data } = state;
-  const params = useParams();
 
   return (
     <Container>
