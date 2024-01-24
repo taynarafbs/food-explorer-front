@@ -7,14 +7,31 @@ import { Button } from '../../components/Button';
 import { Footer } from "../../components/Footer";
 
 import { HeaderUser } from "../../components/HeaderUser";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 
 export function Dish() {
+
+  /*
+  - chama pela api direto dishes/show/:id
+  - usar o use effect mermo
+  - useState usando o dish e setDish (singular pq vc ta dentro do detalhe)
+  - colocar as informacoes especificas aqui dentro
+  
+  dica:
+  - use effect é o hook para ciclo de vida do react
+  */
+
+  const navigate = useNavigate();
+  const { state } = useLocation();
+  const { data } = state;
+  const params = useParams();
+
   return (
     <Container>
       <HeaderUser />
       <Form>
-        <button className="goBack" type="button">
+        <button className="goBack" type="button" onClick={() => navigate(-1)}>
           <FiChevronLeft />
           <h5>voltar</h5>
         </button>
@@ -22,7 +39,7 @@ export function Dish() {
           <img className="plateImg" src={FoodImg} alt="Mask group" />
 
           <div className="dishInformation">
-            <h1>Salada Ravanello</h1>
+            <h1>{data.title}</h1>
             <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial.</p>
 
             <div className="tags">

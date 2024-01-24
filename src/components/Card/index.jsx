@@ -5,16 +5,29 @@ import { FiEdit2, FiMinus, FiPlus } from "react-icons/fi";
 import { Button } from "../Button";
 import { Container, } from "./styles";
 import { api } from "../../services/api";
+import { useNavigate } from 'react-router-dom';
 
 /*
 todo:
 - OK - fazer o wrapper pra nao ficar so em uma linha
 - OK - fazer o controle do amount correlacionado com o prato (pode ser o pedido mermo) +1 -1 nao mudar em todos
-- fazer o controle de detalhes do prato (favoritado?)
-- formacao de preço
+- OK - fazer o controle de detalhes do prato (favoritado?)
+- OK botao favorito ser um toggle (liga e desliga)
+- OK - formacao de preço
 - rota de edicao
-- botao favorito ser um toggle (liga e desliga)
 */
+
+// {
+//   "id": 6,
+//   "title": "Salada Molla",
+//   "description": "Tomate, folhas verdes, pepino, cebola e tempero apimentado",
+//   "price": "79,97",
+//   "type": "Refeições",
+//   "user_id": 5,
+//   "create_at": "2024-01-11 19:31:39",
+//   "updated_at": "2024-01-11 19:31:39",
+//   "img": "d92d827c85a337a178d9-Mask group-3.png"
+// },
 
 export default function Card({ data, i, isAdmin }) {
   const [quantity, setQuantity] = useState(0);
@@ -29,8 +42,6 @@ export default function Card({ data, i, isAdmin }) {
   const handleIncrease = () => {
     setQuantity(quantity + 1);
   }
-
-
 
   /*
   EXPRESSOES CONDICIONAIS
@@ -58,8 +69,9 @@ export default function Card({ data, i, isAdmin }) {
       </button >
     );
   }
-
+  const navigate = useNavigate();
   return (
+
     <Container key={i}>
       {
         isAdmin &&
@@ -69,7 +81,7 @@ export default function Card({ data, i, isAdmin }) {
       }
       <FavButton />
 
-      <div className="clickplate">
+      <div className="clickplate" onClick={() => navigate(`/dish/${data.id}`, { state: { data } })}>
         <button className="imgPlate" type="button">
           <img src={`${api.defaults.baseURL}/files/${data.img}`} alt="imagem do prato" />
         </button>
