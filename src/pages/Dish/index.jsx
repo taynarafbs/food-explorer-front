@@ -1,13 +1,14 @@
-import { FiChevronLeft, FiMinus, FiPlus } from "react-icons/fi";
+import React, { useState } from 'react'
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { api } from "../../services/api";
 
-import FoodImg from '../.././assets/Imagens - Food Explorer-v2/Mask group.png';
+import { FiChevronLeft, FiMinus, FiPlus } from "react-icons/fi";
 import { Container, Form } from "./styles";
 
 import { Button } from '../../components/Button';
 import { Footer } from "../../components/Footer";
 
 import { HeaderUser } from "../../components/HeaderUser";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 
 export function Dish() {
@@ -27,6 +28,20 @@ export function Dish() {
   const { data } = state;
   const params = useParams();
 
+  const [quantity, setQuantity] = useState(0);
+
+  const handleDecrease = () => {
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+    }
+  }
+
+  const handleIncrease = () => {
+    setQuantity(quantity + 1);
+  }
+
+
+
   return (
     <Container>
       <HeaderUser />
@@ -36,23 +51,24 @@ export function Dish() {
           <h5>voltar</h5>
         </button>
         <main>
-          <img className="plateImg" src={FoodImg} alt="Mask group" />
+          <img src={`${api.defaults.baseURL}/files/${data.img}`} alt="imagem do prato" />
 
           <div className="dishInformation">
             <h1>{data.title}</h1>
-            <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial.</p>
+            <p>{data.description}</p>
 
             <div className="tags">
               <Button title="tag ingredientes" />
             </div>
+
             <div className="quantity">
               <div className="decreaseOrAdd">
-                <FiMinus type="button" />
-                <span>01</span>
-                <FiPlus type="button" />
+                <FiMinus type="button" onClick={handleDecrease} />
+                <span>{quantity}</span>
+                <FiPlus type="button" onClick={handleIncrease} />
               </div>
-              <Button className="dishAdd" title="incluir:">
-                <p>R$ 25,00</p>
+              <Button className="dishAdd" title="incluir R$:">
+                <p>{data.price * quantity}</p>
               </Button>
             </div>
           </div>

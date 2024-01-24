@@ -42,15 +42,21 @@ export const Container = styled.div`
   }
 
   > .clickplate {
-    .imgPlate {
       display: flex;
-      margin-top: 3rem;
-      
-      img {
-        max-width: 17.6rem;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+
+      .imgPlate {
+        display: flex;
+        margin-top: 3rem;
+        
+        img {
+          max-width: 17.6rem;
+        }
       }
-    }
-     
+
     > button {
       background: transparent;
       border: none;
@@ -114,8 +120,7 @@ export const Container = styled.div`
     min-width: 210px;
     height: 100%;
     > .plates {
-      main {
-        > .imgPlate {
+      > .imgPlate {
             align-items: center;
             display: flex;
             justify-content: center;
@@ -161,7 +166,6 @@ export const Container = styled.div`
             }
           }
         }
-      }
     }
   }
 

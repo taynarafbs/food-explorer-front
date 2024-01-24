@@ -45,9 +45,12 @@ export const Container = styled.div`
     .imgPlate {
       display: flex;
       margin-top: 3rem;
-      
       img {
         max-width: 17.6rem;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
       }
     }
      
@@ -113,8 +116,8 @@ export const Container = styled.div`
   @media (max-width: 1000px) {
     min-width: 210px;
     height: 100%;
+
     > .plates {
-      main {
         > .imgPlate {
             align-items: center;
             display: flex;
@@ -161,10 +164,6 @@ export const Container = styled.div`
             }
           }
         }
-      }
     }
   }
-
-
-
 `;

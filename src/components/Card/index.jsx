@@ -17,17 +17,17 @@ todo:
 - rota de edicao
 */
 
-// {
-//   "id": 6,
-//   "title": "Salada Molla",
-//   "description": "Tomate, folhas verdes, pepino, cebola e tempero apimentado",
-//   "price": "79,97",
-//   "type": "Refeições",
-//   "user_id": 5,
-//   "create_at": "2024-01-11 19:31:39",
-//   "updated_at": "2024-01-11 19:31:39",
-//   "img": "d92d827c85a337a178d9-Mask group-3.png"
-// },
+/*
+  EXPRESSOES CONDICIONAIS
+  1 - {condicao && o que executa}
+  2 - {condicao ? faca isso : ou isso} - operador ternario
+  2.1 - é a mesma coisa que fazer:
+   if (condicao) {
+    faca isso
+   } else {
+    ou isso
+   }
+  */
 
 export default function Card({ data, i, isAdmin }) {
   const [quantity, setQuantity] = useState(0);
@@ -42,18 +42,6 @@ export default function Card({ data, i, isAdmin }) {
   const handleIncrease = () => {
     setQuantity(quantity + 1);
   }
-
-  /*
-  EXPRESSOES CONDICIONAIS
-  1 - {condicao && o que executa}
-  2 - {condicao ? faca isso : ou isso} - operador ternario
-  2.1 - é a mesma coisa que fazer:
-   if (condicao) {
-    faca isso
-   } else {
-    ou isso
-   }
-  */
 
   const FavButton = () => {
     const [isFavorite, setIsFavorite] = useState(false);
@@ -80,7 +68,6 @@ export default function Card({ data, i, isAdmin }) {
         </div>
       }
       <FavButton />
-
       <div className="clickplate" onClick={() => navigate(`/dish/${data.id}`, { state: { data } })}>
         <button className="imgPlate" type="button">
           <img src={`${api.defaults.baseURL}/files/${data.img}`} alt="imagem do prato" />

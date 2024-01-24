@@ -4,10 +4,10 @@ import { Cards } from "../Cards";
 
 import { Container } from './styles'
 
-export function Section({ cards, ...rest}) {
+export function Section({ cards, ...rest }) {
     return (
         <Container>
-              <div className="CarouselSection">
+            <div className="CarouselSection">
                 <div className="carousel">
                     <button
                         type="button"
@@ -25,7 +25,7 @@ export function Section({ cards, ...rest}) {
                         <FiChevronRight size={40} color="#FFFFFF" />
                     </button>
                     <div className="cardSection">
-                        <Cards/>
+                        <Cards />
                     </div>
                 </div>
             </div>
