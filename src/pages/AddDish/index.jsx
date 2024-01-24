@@ -90,7 +90,7 @@ export function AddDish() {
           </div>
 
           <div className="button">
-            <Button title={'Salvar alterações'}/>
+            <Button title={'Salvar alterações'} />
           </div>
         </Form>
       </main>

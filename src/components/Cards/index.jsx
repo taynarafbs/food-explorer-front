@@ -1,19 +1,71 @@
-import { useEffect, useState, forwardRef } from "react";
+import { useEffect, useState } from "react";
 
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { FiEdit2, FiMinus, FiPlus } from "react-icons/fi";
 
 
 import { Button } from "../Button";
-import { Container } from "./styles";
+import { Container, Wrapper, } from "./styles";
 import { useAuth } from "../../hooks/auth";
 
 import { api } from "../../services/api";
 
+const Card = ({ data, i, isAdmin }) => {
+    const [quantity, setQuantity] = useState(1);
+    function handleDecrease() {
+        if (quantity <= 1) {
+            setQuantity(1);
+            return alert("Quantidade mínima é 1");
+        }
+        setQuantity(quantity - 1);
+        return null;
+    }
+
+    function handleIncrease() {
+        setQuantity(quantity + 1);
+    }
+    return (
+        <Container key={i}>
+            {
+                isAdmin &&
+                <div className="icon">
+                    <FiEdit2 />
+                </div>
+            }
+            < button className="favorite" type="button" >
+                <AiFillHeart color="#FFFFFF" size={24} />
+                <AiOutlineHeart color="#FFFFFF" size={24} />
+            </button >
+
+            <div className="clickplate">
+                <button className="imgPlate" type="button">
+                    <img src={`${api.defaults.baseURL}/files/${data.img}`} alt="imagem do prato" />
+                </button>
+            </div>
+            <div className="plates">
+                <div className="informations">
+                    <h1>{data.title}</h1>
+                    <p>{data.description}</p>
+                    <h5>R$ {data.price}</h5>
+
+                    <div className="includePlates">
+                        <div className="decreaseOrAdd">
+                            <FiMinus type="button" onClick={handleDecrease} />
+                            <span>{quantity}</span>
+                            <FiPlus type="button" onClick={handleIncrease} />
+                        </div>
+                        <Button className="dishAdd" title="incluir" />
+                    </div>
+                </div>
+            </div>
+        </Container>
+    )
+
+}
+
 export function Cards() {
     const [dishes, setDishes] = useState([]);
-    const [counter, setCounter] = useState(0);
-    const [counterObj, setCounterObj] = useState([]);
+
     const { user } = useAuth();
 
     useEffect(() => {
@@ -41,40 +93,14 @@ export function Cards() {
     */
     return (
         <>
-            {dishes && dishes.map((dish, i) => (
-                <Container key={i}>
-                    {user.admin &&
-                        <div className="icon">
-                            <FiEdit2 />
-                        </div>}
-                    <button className="favorite" type="button">
-                        <AiFillHeart color="#FFFFFF" size={24} />
-                        <AiOutlineHeart color="#FFFFFF" size={24} />
-                    </button>
 
-                    <div className="clickplate">
-                        <button className="imgPlate" type="button">
-                            <img src={`${api.defaults.baseURL}/files/${dish.img}`} alt="imagem do prato" />
-                        </button>
-                    </div>
-                    <div className="plates">
-                        <div className="informations">
-                            <h1>{dish.title}</h1>
-                            <p>Massa fresca com camarões e pesto</p>
-                            <h5>R$ 79,97</h5>
+            <Wrapper>
 
-                            <div className="includePlates">
-                                <div className="decreaseOrAdd">
-                                    <FiMinus type="button" onClick={() => setCounter(counter - 1)} />
-                                    <span>{counter.toString().padStart(2, '0')}</span>
-                                    <FiPlus type="button" onClick={() => setCounter(counter + 1)} />
-                                </div>
-                                <Button className="dishAdd" title="incluir" />
-                            </div>
-                        </div>
-                    </div>
-                </Container>
-            ))}
+                {dishes && dishes.map((dish, i) => (
+                    <Card data={dish} key={i} isAdmin={user.admin} />
+                ))}
+            </Wrapper>
+
         </>
     );
 }

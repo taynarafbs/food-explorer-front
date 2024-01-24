@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const Wrapper = styled.div`
+  height: 100%;
+  display:flex;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-wrap: wrap;
+  grid-area: content;
+  `
+
 export const Container = styled.div`
   width: 304px;
   height: 462px;
