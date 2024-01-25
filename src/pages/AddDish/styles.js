@@ -16,6 +16,8 @@ export const Container = styled.div`
     display: flex;
     width: 100%;
     justify-content: flex-end;
+    gap: 10px;
+    margin-top: 16px;
 
     Button {
       display: flex;

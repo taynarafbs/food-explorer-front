@@ -1,6 +1,7 @@
 import { FiLogOut } from "react-icons/fi";
 import { TfiReceipt } from "react-icons/tfi";
 import { useAuth } from "../../hooks/auth";
+import { useNavigate } from "react-router-dom";
 
 import Polygon from "../../assets/polygon1.png";
 
@@ -11,7 +12,16 @@ import { Container, Logout } from "./styles";
 
 export function HeaderUser({ handleSearch }) {
   const { signOut } = useAuth();
+  const navigate = useNavigate();
 
+  function handleSignOut() {
+    navigate("/");
+    signOut();
+  }
+
+  function handleHome() {
+    navigate("/");
+  }
 
   return (
     <Container>
@@ -20,13 +30,13 @@ export function HeaderUser({ handleSearch }) {
       </div>
       <div className="test">
         <div className="admin">
-          <div className="logo">
+          <div className="logo" title="Logo" onClick={handleHome}>
             <img src={Polygon} alt="" />
             <h3>food explorer</h3>
           </div>
         </div>
         <div className="input">
-          <SearchInput />
+          <SearchInput handleSearch={handleSearch} />
         </div>
       </div>
       <Button
@@ -35,7 +45,7 @@ export function HeaderUser({ handleSearch }) {
         icon={TfiReceipt}
       />
 
-      <Logout onClick={signOut}>
+      <Logout onClick={handleSignOut}>
         <FiLogOut />
       </Logout>
 

@@ -3,12 +3,17 @@ import { Container, Form } from "./styles";
 import { Footer } from '../../components/Footer';
 import FoodImg from '../../assets/FoodImage.png';
 import { HeaderUser } from "../../components/HeaderUser";
+import { HeaderAdmin } from "../../components/HeaderAdmin";
 
 import { Section } from "../../components/Section";
 //import { useLocation, useNavigate, useParams } from "react-router-dom";
 //import { api } from "../../services/api";
+//import { useAuth } from "../../hooks/auth";
 
 export function Home(cards,) {
+
+  //const { isAdmin } = useAuth();
+  //const isAdmin = user && user.admin ? true : false;
 
   /*const navigate = useNavigate();
   const { state } = useLocation();
@@ -18,7 +23,8 @@ export function Home(cards,) {
 
   return (
     <Container>
-      <HeaderUser />
+      <HeaderAdmin />
+
       <Form>
         <div className="ImageHome">
           <img className="imageHeader" src={FoodImg} alt="FoodImage" />
@@ -27,8 +33,6 @@ export function Home(cards,) {
             <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
           </div>
         </div>
-
-
 
 
         <h2>Refeições</h2>

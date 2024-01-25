@@ -31,7 +31,12 @@ todo:
 
 export default function Card({ data, i, isAdmin }) {
   const [quantity, setQuantity] = useState(0);
-  // const [isFavorite, setIsFavorite] = useState(false);
+
+  function handleEditDish() {
+    navigate("/edit");
+  }
+
+
 
   const handleDecrease = () => {
     if (quantity > 0) {
@@ -61,18 +66,20 @@ export default function Card({ data, i, isAdmin }) {
   return (
 
     <Container key={i}>
-      {
-        isAdmin &&
-        <div className="icon">
+      {isAdmin ? (
+        <div className="icon" title="iconEdit" onClick={handleEditDish}>
           <FiEdit2 />
         </div>
-      }
-      <FavButton />
+      ) : (
+        <FavButton />
+      )}
+
       <div className="clickplate" onClick={() => navigate(`/dish/${data.id}`, { state: { data } })}>
         <button className="imgPlate" type="button">
           <img src={`${api.defaults.baseURL}/files/${data.img}`} alt="imagem do prato" />
         </button>
       </div>
+
       <div className="plates">
         <div className="informations">
           <h1>{data.title}</h1>

@@ -8,7 +8,6 @@ import Card from "../Card";
 
 export function Cards() {
     const [dishes, setDishes] = useState([]);
-
     const { user } = useAuth();
 
     useEffect(() => {
@@ -25,7 +24,6 @@ export function Cards() {
 
     return (
         <>
-
             <Wrapper>
 
                 {dishes && dishes.map((dish, i) => (

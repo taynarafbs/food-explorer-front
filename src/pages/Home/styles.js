@@ -26,18 +26,12 @@ export const Form = styled.div`
     height: 26rem;
     padding: 3rem;
 
-    .imageHeader {
-      position: absolute;
-      max-width: 63.2rem;
-      left: -7rem;
-      bottom: -1.4rem;
-    }
-
     > .description {
       display: flex;
       justify-content: center;
       flex-direction: column;
       align-items: last baseline;
+      position: absolute;
       width: 50%;
       min-width: 42.2rem;
       right: 10rem;
@@ -52,6 +46,13 @@ export const Form = styled.div`
         font-size: 1.6rem;
         color: ${({ theme }) => theme.COLORS.LIGHT_300};
       }
+    }
+
+    .imageHeader {
+      position: absolute;
+      max-width: 63.2rem;
+      left: -7rem;
+      bottom: -1.4rem;
     }
     
   }

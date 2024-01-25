@@ -1,7 +1,8 @@
 import { FiLogOut } from "react-icons/fi";
 import { useAuth } from "../../hooks/auth";
-import Polygon from "../../assets/polygon1.png";
+import { useNavigate } from "react-router-dom";
 
+import Polygon from "../../assets/polygon1.png";
 import { Button } from "../Button";
 
 import { SearchInput } from "../SearchInput";
@@ -9,6 +10,21 @@ import { Container, Logout } from "./styles";
 
 export function HeaderAdmin({ handleSearch }) {
     const { signOut } = useAuth();
+    const navigate = useNavigate();
+
+    function handleSignOut() {
+        navigate("/");
+        signOut();
+    }
+
+    function handleAddDish() {
+        navigate("/add");
+    }
+
+    function handleHome() {
+        navigate("/");
+    }
+
 
     return (
         <Container>
@@ -17,7 +33,7 @@ export function HeaderAdmin({ handleSearch }) {
             </div>
             <div className="test">
                 <div className="admin">
-                    <div className="logo">
+                    <div className="logo" title="Logo" onClick={handleHome}>
                         <img src={Polygon} alt="" />
                         <h3>food explorer</h3>
                     </div>
@@ -32,9 +48,10 @@ export function HeaderAdmin({ handleSearch }) {
             <Button
                 className="newPlate"
                 title="Novo Prato"
+                onClick={handleAddDish}
             />
 
-            <Logout onClick={signOut}>
+            <Logout onClick={handleSignOut}>
                 <FiLogOut />
             </Logout>
 

@@ -1,4 +1,5 @@
 import { FiChevronLeft } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 import { Container, Form } from "./styles";
 
@@ -10,6 +11,9 @@ import { HeaderAdmin } from "../../components/HeaderAdmin";
 
 
 export function AddDish() {
+  const navigate = useNavigate();
+
+
 
   return (
     <Container>
@@ -17,7 +21,7 @@ export function AddDish() {
       <main>
         <Form>
           <header>
-            <button type="button">
+            <button className="goBack" type="button" onClick={() => navigate(-1)}>
               <FiChevronLeft />
               voltar
             </button>
