@@ -66,12 +66,12 @@ export const Form = styled.div`
 
             .tags {
               display: flex;
-              flex-wrap: wrap;
+              flex-direction: row;
               gap: 10px;
               
             }
 
-            .dishAdd {
+            .dishEdit {
                 max-width: 131px;
                 
                 p {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { api } from "../../services/api";
 
@@ -9,7 +9,9 @@ import { Button } from '../../components/Button';
 import { Footer } from "../../components/Footer";
 
 import { HeaderUser } from "../../components/HeaderUser";
+import { HeaderAdmin } from "../../components/HeaderAdmin";
 
+import { useAuth } from "../../hooks/auth";
 
 export function Dish() {
 
@@ -23,11 +25,12 @@ export function Dish() {
   dica:
   - use effect é o hook para ciclo de vida do react
   */
-
+  const { isAdmin } = useAuth();
   const navigate = useNavigate();
   const { state } = useLocation();
   const { data } = state;
-  const params = useParams();
+
+  //const params = useParams();
 
   const [quantity, setQuantity] = useState(0);
   const [currentTotal, setCurrentTotal] = useState(0);
@@ -60,9 +63,19 @@ export function Dish() {
     }
   }
 
+
+  function handleEditPlate() {
+    navigate("/edit");
+  }
+
+
   return (
     <Container>
-      <HeaderUser />
+      {isAdmin ? (
+        <HeaderAdmin />
+      ) : (
+        <HeaderUser />
+      )}
       <Form>
         <button className="goBack" type="button" onClick={() => navigate(-1)}>
           <FiChevronLeft />
@@ -76,19 +89,26 @@ export function Dish() {
             <p>{data.description}</p>
 
             <div className="tags">
-              <Button title="tag ingredientes" />
+              <Button title="tag" />
             </div>
 
-            <div className="quantity">
-              <div className="decreaseOrAdd">
-                <FiMinus type="button" onClick={handleDecrease} />
-                <span>{quantity}</span>
-                <FiPlus type="button" onClick={handleIncrease} />
+            {isAdmin ? (
+              <div className="dishEdit">
+                <Button title="Editar prato" onClick={handleEditPlate} />
               </div>
-              <Button className="dishAdd" title="incluir ∙ R$:">
-                <p>{currentTotal === 0 ? formattedPrice.toLocaleString('pt-BR') : currentTotal.toLocaleString('pt-BR')}</p>
-              </Button>
-            </div>
+            ) : (
+              <div className="quantity">
+                <div className="decreaseOrAdd">
+                  <FiMinus type="button" onClick={handleDecrease} />
+                  <span>{quantity}</span>
+                  <FiPlus type="button" onClick={handleIncrease} />
+                </div>
+                <Button className="dishAdd" title="incluir ∙ R$:">
+                  <p>{currentTotal === 0 ? formattedPrice.toLocaleString('pt-BR') : currentTotal.toLocaleString('pt-BR')}</p>
+                </Button>
+              </div>
+            )}
+
           </div>
         </main>
       </Form>

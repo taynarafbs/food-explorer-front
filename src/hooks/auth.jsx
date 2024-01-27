@@ -17,7 +17,6 @@ function AuthProvider({ children }) {
             localStorage.setItem("@foodexplorer:token", token);
 
             api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-            user.admin = user.email === 'admin@email.com';
             setData({ user, token });
 
         } catch (error) {
@@ -56,6 +55,7 @@ function AuthProvider({ children }) {
             signIn,
             signOut,
             user: data.user,
+            isAdmin: data.user?.is_admin ?? false
         }}>
             {children}
         </AuthContext.Provider>

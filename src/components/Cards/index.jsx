@@ -27,7 +27,7 @@ export function Cards() {
             <Wrapper>
 
                 {dishes && dishes.map((dish, i) => (
-                    <Card data={dish} key={i} isAdmin={user.admin} />
+                    <Card data={dish} key={i} />
                 ))}
             </Wrapper>
 

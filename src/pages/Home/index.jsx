@@ -6,11 +6,13 @@ import { HeaderUser } from "../../components/HeaderUser";
 import { HeaderAdmin } from "../../components/HeaderAdmin";
 
 import { Section } from "../../components/Section";
+import { useAuth } from "../../hooks/auth";
 //import { useLocation, useNavigate, useParams } from "react-router-dom";
 //import { api } from "../../services/api";
 //import { useAuth } from "../../hooks/auth";
 
 export function Home(cards,) {
+ const {isAdmin} = useAuth();
 
   //const { isAdmin } = useAuth();
   //const isAdmin = user && user.admin ? true : false;
@@ -23,8 +25,7 @@ export function Home(cards,) {
 
   return (
     <Container>
-      <HeaderAdmin />
-
+      {isAdmin ? <HeaderAdmin /> : <HeaderUser />}
       <Form>
         <div className="ImageHome">
           <img className="imageHeader" src={FoodImg} alt="FoodImage" />

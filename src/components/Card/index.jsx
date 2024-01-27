@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { FiEdit2, FiMinus, FiPlus } from "react-icons/fi";
 
@@ -6,6 +6,7 @@ import { Button } from "../Button";
 import { Container, } from "./styles";
 import { api } from "../../services/api";
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks/auth';
 
 /*
 todo:
@@ -29,7 +30,8 @@ todo:
    }
   */
 
-export default function Card({ data, i, isAdmin }) {
+export default function Card({ data, i }) {
+  const { isAdmin } = useAuth();
   const [quantity, setQuantity] = useState(0);
 
   function handleEditDish() {
@@ -63,6 +65,7 @@ export default function Card({ data, i, isAdmin }) {
     );
   }
   const navigate = useNavigate();
+
   return (
 
     <Container key={i}>
@@ -86,14 +89,17 @@ export default function Card({ data, i, isAdmin }) {
           <p>{data.description}</p>
           <h5>R$ {data.price}</h5>
 
-          <div className="includePlates">
-            <div className="decreaseOrAdd">
-              <FiMinus type="button" onClick={handleDecrease} />
-              <span>{quantity}</span>
-              <FiPlus type="button" onClick={handleIncrease} />
+          {!isAdmin && (
+            <div className="includePlates">
+              <div className="decreaseOrAdd">
+                <FiMinus type="button" onClick={handleDecrease} />
+                <span>{quantity}</span>
+                <FiPlus type="button" onClick={handleIncrease} />
+              </div>
+              <Button className="dishAdd" title="incluir" />
             </div>
-            <Button className="dishAdd" title="incluir" />
-          </div>
+          )}
+
         </div>
       </div>
     </Container>
