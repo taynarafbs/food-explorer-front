@@ -22,7 +22,6 @@ export const Container = styled.div`
 
     Button {
       display: flex;
-      
       width: 172px;
       align-items: center;
       text-align: center;
@@ -101,13 +100,17 @@ export const Form = styled.form`
     }
 
     .category {
-      width: 100%;
-      height: 48px;
-      border: none;
-      color: white;
-      border-radius: 5px;
-      padding: 4px;
-      
+      select {
+        margin-top: 16px;
+        width: 100%;
+        height: 48px;
+        background: ${({ theme }) => theme.COLORS.DARK_800};
+        border: none;
+        color: white;
+        border-radius: 5px;
+        padding: 4px;
+
+      }
     }
   }
 

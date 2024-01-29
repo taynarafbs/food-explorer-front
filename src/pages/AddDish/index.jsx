@@ -9,6 +9,7 @@ import { Input } from "../../components/Input";
 import { HeaderAdmin } from "../../components/HeaderAdmin";
 import { api } from "../../services/api";
 import { TextArea } from "../../components/TextArea";
+import { BsUpload } from "react-icons/bs";
 
 export function AddDish() {
   const navigate = useNavigate();
@@ -17,15 +18,22 @@ export function AddDish() {
   const [price, setPrice] = useState("");
   const [type, setType] = useState("Refeições");
   const [description, setDescription] = useState("");
+  const [img, setImg] = useState(null);
 
   const [ingredients, setIngredients] = useState([]);
   const [newIngredient, setNewIngredient] = useState("");
-  const [text, setText] = useState('');
+  //const [text, setText] = useState('');
 
 
   function handleAddIngredient() {
     setIngredients(prevState => [...prevState, newIngredient]);
     setNewIngredient("");
+  };
+
+  const handleImg = (e) => {
+    const file = e.target.files[0];
+
+    setImg(file);
   };
 
   const handleSubmit = () => {
@@ -36,8 +44,9 @@ export function AddDish() {
       {type},
       {description},
       {ingredients},
+      {img}
     )
-    if (!title || !price || !type || !description) {
+    if (!title || !price || !type || !description|| !img) {
       return alert("Preencha todos os campos!");
   }
 
@@ -73,10 +82,11 @@ export function AddDish() {
               <div className="image">
                 <label htmlFor="inputImage" />
                   <Input
+                    icon={BsUpload}
                     type="file"
                     name="inputImage"
                     id="inputImage"
-                    placeholder="Selecione imagem"
+                    onChange={handleImg}
                   /> 
               </div>
             </div>
@@ -119,7 +129,7 @@ export function AddDish() {
               <Input
                 id="adicionar"
                 type="text"
-                placeholder="Novo ingrediente (enter para adicionar)"
+                placeholder="Adicionar"
                 name="adicionar"
                 value={newIngredient}
                 onKeyDown={function(e){
@@ -177,6 +187,7 @@ export function AddDish() {
                 {description},
                 {ingredients},
                 {newIngredient},
+                {img}
               )
             }}
             />

@@ -4,7 +4,7 @@ import { Container } from "./styles";
 export function Tag({ name, isNew = false, onClick, isFixed = false, ...rest }) {
     return (
         <Container readOnly={!isNew}>
-            <input type="text" name={name} readOnly={!isnew} {...rest} />
+            <input type="text" name={name} readOnly={!isNew} {...rest} />
             <button
                 type="button"
                 onClick={onClick}

@@ -78,6 +78,7 @@ export const Form = styled.form`
     .dishImage {
       > h5 {
         margin-top: 16px;
+        margin-bottom: 9px;
         font-size: 16px;
         font-weight: 400;
       }
@@ -98,12 +99,18 @@ export const Form = styled.form`
     }
 
     .category {
-      width: 100%;
-      height: 48px;
-      border: none;
-      color: white;
-      border-radius: 5px;
-      padding: 4px;
+      
+      select {
+        margin-top: 16px;
+        width: 100%;
+        height: 48px;
+        background: ${({ theme }) => theme.COLORS.DARK_800};
+        border: none;
+        color: white;
+        border-radius: 5px;
+        padding: 4px;
+
+      }
     }
   }
 
@@ -137,7 +144,6 @@ export const Form = styled.form`
       display: flex;
       flex-direction: column;
       gap: 24px;
-      margin-top: 24px;
       
     }
 
@@ -145,22 +151,11 @@ export const Form = styled.form`
       display: flex;
       flex-direction: column;
       gap: 24px;
-      margin-top: 70px;
-    }
-
-    > .description {
-      margin-bottom: 2.4rem;
     }
 
     > .button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      
-  
       Button {
-        padding: 0px;
+        padding: 0;
         align-items: center;
         
       }
