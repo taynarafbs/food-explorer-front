@@ -10,6 +10,7 @@ import { Footer } from "../../components/Footer";
 
 import { HeaderUser } from "../../components/HeaderUser";
 import { HeaderAdmin } from "../../components/HeaderAdmin";
+import { Tag } from "../../components/Tag"; 
 
 import { useAuth } from "../../hooks/auth";
 
@@ -25,16 +26,32 @@ export function Dish() {
   dica:
   - use effect é o hook para ciclo de vida do react
   */
+
   const { isAdmin } = useAuth();
   const navigate = useNavigate();
+
   const { state } = useLocation();
   const { data } = state;
-
-  //const params = useParams();
 
   const [quantity, setQuantity] = useState(0);
   const [currentTotal, setCurrentTotal] = useState(0);
   const [formattedPrice, setFormattedPrice] = useState(0);
+  const [dishDetails, setDishDetails] = useState([]);
+
+
+  // data é o index
+  // chama o dish do dishes na api e o data.id de cada prato
+  useEffect(() => {
+    async function fetchDishes() {
+        const token = localStorage.getItem("@foodexplorer:token");
+        if (token && data) {
+            api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+            const dish = await api.get(`/dishes/${data.id}`);
+            setDishDetails(dish.data);
+        }
+    }
+    fetchDishes();
+}, [data]);
 
   const parsePrice = (price) => {
     return parseFloat((parseFloat(price).toFixed(2)));
@@ -64,10 +81,9 @@ export function Dish() {
   }
 
 
-  function handleEditPlate() {
+  function handleEditDish() {
     navigate("/edit");
   }
-
 
   return (
     <Container>
@@ -76,6 +92,7 @@ export function Dish() {
       ) : (
         <HeaderUser />
       )}
+      
       <Form>
         <button className="goBack" type="button" onClick={() => navigate(-1)}>
           <FiChevronLeft />
@@ -85,16 +102,21 @@ export function Dish() {
           <img src={`${api.defaults.baseURL}/files/${data.img}`} alt="imagem do prato" />
 
           <div className="dishInformation">
-            <h1>{data.title}</h1>
-            <p>{data.description}</p>
+            <h1>{dishDetails.title}</h1>
+            <p>{dishDetails.description}</p>
 
-            <div className="tags">
-              <Button title="tag" />
-            </div>
+            {
+              dishDetails.ingredients &&
+                <div className="tags">
+                  {dishDetails.ingredients.map((ingredient) => {
+                    return <Tag key={ingredient.id} value={ingredient.name} isFixed />
+                  })}
+                </div>
+            }
 
             {isAdmin ? (
               <div className="dishEdit">
-                <Button title="Editar prato" onClick={handleEditPlate} />
+                <Button title="Editar prato" onClick={handleEditDish} />
               </div>
             ) : (
               <div className="quantity">

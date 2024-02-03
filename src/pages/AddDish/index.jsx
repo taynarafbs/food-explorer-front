@@ -22,14 +22,8 @@ export function AddDish() {
 
   const [ingredients, setIngredients] = useState([]);
   const [newIngredient, setNewIngredient] = useState("");
-  //const [text, setText] = useState('');
 
-
-  function handleAddIngredient() {
-    setIngredients(prevState => [...prevState, newIngredient]);
-    setNewIngredient("");
-  };
-
+  
   const handleImg = (e) => {
     const file = e.target.files[0];
 

@@ -7,10 +7,11 @@ import { HeaderAdmin } from "../../components/HeaderAdmin";
 import { Section } from "../../components/Section";
 import { useAuth } from "../../hooks/auth";
 
-export function Home(cards,) {
+export function Home() {
   const {isAdmin} = useAuth();
+  
 
-
+  
     return (
       <Container>
         {isAdmin ? <HeaderAdmin /> : <HeaderUser />}
@@ -26,9 +27,18 @@ export function Home(cards,) {
 
           <h2>Refeições</h2>
           <div className="Section">
-            <Section />
+            <Section type="Refeições" />
           </div>
 
+          <h2>Sobremesas</h2>
+          <div className="Section">
+            <Section type="Sobremesas" />
+          </div>
+
+          <h2>Bebidas</h2>
+          <div className="Section">
+            <Section type="Bebidas" />
+          </div>
 
         </Form>
         <Footer />

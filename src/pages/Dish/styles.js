@@ -68,9 +68,8 @@ export const Form = styled.div`
               display: flex;
               flex-direction: row;
               gap: 10px;
-              
             }
-
+            
             .dishEdit {
                 max-width: 131px;
                 

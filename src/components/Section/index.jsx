@@ -3,7 +3,7 @@ import { Cards } from "../Cards";
 
 import { Container } from './styles'
 
-export function Section({ cards, ...rest }) {
+export function Section({ title, type,...rest }) {
     return (
         <Container>
             <div className="CarouselSection">
@@ -24,7 +24,7 @@ export function Section({ cards, ...rest }) {
                         <FiChevronRight size={40} color="#FFFFFF" />
                     </button>
                     <div className="cardSection">
-                        <Cards />
+                        <Cards type={type}/>
                     </div>
                 </div>
             </div>

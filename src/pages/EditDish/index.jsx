@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect,useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { FiChevronLeft, FiTrash } from "react-icons/fi";
 
 import { Container, Form } from "./styles";
@@ -12,8 +12,14 @@ import { TextArea } from "../../components/TextArea";
 import { BsUpload } from "react-icons/bs";
 
 
+// pra editar usar o useParams
+// vc precisa colocar o edit/:id como edit/5 que 5 é o prato
+// depois disso vc pega as infos ou se quiser vc joga no componente de <Edit se vc ja tiver isso la
+// se nao tiver faz o esquema do fetch e abraco
+
 export function EditDish() {
   const navigate = useNavigate();
+  const params = useParams();
 
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
@@ -23,13 +29,29 @@ export function EditDish() {
 
   const [ingredients, setIngredients] = useState([]);
   const [newIngredient, setNewIngredient] = useState("");
-  //const [text, setText] = useState('');
+  const [showLoading, setShowLoading] = useState(false);
 
+  useEffect(() => {
+    async function fetchDish() {
+      setShowLoading(true);
+      try {
+        const response = await api.get(`/dishes/${params.id}`);
 
-  function handleAddIngredient() {
-    setIngredients(prevState => [...prevState, newIngredient]);
-    setNewIngredient("");
-  };
+        const dish = response.data;
+
+        setName(dish.name);
+        setType(dish.type);
+        setPrice(dish.price);
+        setIngredients(dish.ingredients.map(ingredient => ingredient.name));
+        setDescription(dish.description);
+        setShowLoading(false);
+      } catch (error) {
+        setShowLoading(false);
+      }
+    }
+
+    fetchDish();
+  }, [])
 
   const handleImg = (e) => {
     const file = e.target.files[0];
@@ -198,6 +220,7 @@ export function EditDish() {
         </Form>
       </main>
       <Footer />
+      {showLoading}
     </Container>
   );
 }

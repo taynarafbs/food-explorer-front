@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   overflow-x: hidden;
   flex-wrap: wrap;
   grid-area: content;
-  `
+`
 
 export const Container = styled.div`
   width: 304px;
@@ -118,6 +118,7 @@ export const Container = styled.div`
     height: 100%;
 
     > .plates {
+
         > .imgPlate {
             align-items: center;
             display: flex;
