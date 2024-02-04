@@ -4,6 +4,7 @@ import { Home } from '../pages/Home';
 import { Dish } from '../pages/Dish';
 import { AddDish } from '../pages/AddDish';
 import { EditDish } from '../pages/EditDish';
+import { Menu} from '../pages/Menu';
 
 export function AppRoutes() {
     return (
@@ -12,6 +13,7 @@ export function AppRoutes() {
             <Route path="/dish/:id" element={<Dish />} />
             <Route path="/add" element={<AddDish />} />
             <Route path="/edit" element={<EditDish />} />
+            <Route path="/menu" element={<Menu />} />
 
         </Routes>
     )

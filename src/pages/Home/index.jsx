@@ -8,7 +8,7 @@ import { Section } from "../../components/Section";
 import { useAuth } from "../../hooks/auth";
 
 export function Home() {
-  const {isAdmin} = useAuth();
+    const {isAdmin} = useAuth();
   
 
   
@@ -24,22 +24,23 @@ export function Home() {
             </div>
           </div>
 
+          <div className="Dishes"> 
+            <h2>Refeições</h2>
+            <div className="Section">
+              <Section type="Refeições" />
+            </div>
 
-          <h2>Refeições</h2>
-          <div className="Section">
-            <Section type="Refeições" />
+            <h2>Sobremesas</h2>
+            <div className="Section">
+              <Section type="Sobremesas" />
+            </div>
+
+            <h2>Bebidas</h2>
+            <div className="Section">
+              <Section type="Bebidas" />
+            </div>
           </div>
-
-          <h2>Sobremesas</h2>
-          <div className="Section">
-            <Section type="Sobremesas" />
-          </div>
-
-          <h2>Bebidas</h2>
-          <div className="Section">
-            <Section type="Bebidas" />
-          </div>
-
+          
         </Form>
         <Footer />
       </Container>

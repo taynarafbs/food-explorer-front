@@ -17,6 +17,7 @@ export function Cards({type}) {
                 api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
                 const { data } = await api.get(`/dishes?user_id=${user.id}`);
                 const filteredData = data.filter((v) => v.type == type);
+
                 setDishes(filteredData);
             }
         }

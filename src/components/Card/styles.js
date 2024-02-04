@@ -1,14 +1,5 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
-  height: 100%;
-  display:flex;
-  overflow-y: auto;
-  overflow-x: hidden;
-  flex-wrap: wrap;
-  grid-area: content;
-  `
-
 export const Container = styled.div`
   width: 304px;
   height: 462px;
@@ -120,15 +111,15 @@ export const Container = styled.div`
     min-width: 210px;
     height: 100%;
     > .plates {
-      > .imgPlate {
-            align-items: center;
-            display: flex;
-            justify-content: center;
+      main {
+        > .imgPlate {
+          align-items: center;
+          display: flex;
+          justify-content: center;
           img {
             max-width: 88px;
           }
         }
-        
         .informations {
           display: flex;
           gap: 1.2rem;
@@ -150,7 +141,6 @@ export const Container = styled.div`
             flex-direction: column;
             gap: 1.6rem;
             align-items: center;
-            
             .decreaseOrAdd {
               display: flex;
               flex-direction: row;
@@ -166,9 +156,9 @@ export const Container = styled.div`
             }
           }
         }
+      }
     }
   }
-
-
+  
 
 `;

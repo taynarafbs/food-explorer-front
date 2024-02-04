@@ -54,10 +54,15 @@ export const Form = styled.div`
       left: -7rem;
       bottom: -1.4rem;
     }
-    
   }
 
-  @media (max-width: 1300px) {
+  > .Dishes{
+    padding-top: 40px;
+
+  }
+  
+
+  @media (max-width: 1024px) {
     padding: 10%;
     display: flex;
     flex-direction: column;
@@ -65,6 +70,7 @@ export const Form = styled.div`
 
     .ImageHome {
       margin: 10% 0 0;
+      margin-left: 8rem;
       height: 12rem;
       padding: 0;
       display: flex;

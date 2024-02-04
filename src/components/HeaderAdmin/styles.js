@@ -99,4 +99,3 @@ export const Logout = styled.button`
         display: none;
     }
 `;
-

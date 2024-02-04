@@ -1,6 +1,7 @@
 import { FiLogOut } from "react-icons/fi";
 import { useAuth } from "../../hooks/auth";
 import { useNavigate } from "react-router-dom";
+import { AiOutlineMenu } from "react-icons/ai";
 
 import Polygon from "../../assets/polygon1.png";
 import { Button } from "../Button";
@@ -25,11 +26,15 @@ export function HeaderAdmin({ handleSearch }) {
         navigate("/");
     }
 
+    function handleMenu() {
+        navigate("/menu");
+    }
+
 
     return (
         <Container>
             <div className="menu">
-                olá!
+                <AiOutlineMenu size={24} onClick={handleMenu} />
             </div>
             <div className="test">
                 <div className="admin">
@@ -59,6 +64,3 @@ export function HeaderAdmin({ handleSearch }) {
     );
 
 };
-
-
-
