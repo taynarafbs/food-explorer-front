@@ -41,7 +41,7 @@ export function Menu({  }) {
             </Search>
     
 
-            <Link onClick={handleAddDish}>Novo prato</Link>
+            <Link to="/add">Novo prato</Link>
             
             <Link onClick={handleSignOut}>Sair</Link>
             
