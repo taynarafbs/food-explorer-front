@@ -4,13 +4,13 @@ import { useNavigate, Link } from "react-router-dom";
 import { Footer } from "../../components/Footer";
 import { useAuth } from "../../hooks/auth";
 
-export function Menu({  isAdmin }) {
+export function Menu({  }) {
   const { signOut } = useAuth();
   const navigate = useNavigate();
 
-    function handleSignOut() {
+    async function handleSignOut() {
+        await signOut();
         navigate("/");
-        signOut();
     }
 
     function handleAddDish() {
@@ -31,6 +31,7 @@ export function Menu({  isAdmin }) {
                 <span>Menu</span>
             </div>
 
+            
             <Search>
                 <AiOutlineSearch size={24} />
                 <input
@@ -39,12 +40,12 @@ export function Menu({  isAdmin }) {
                 />
             </Search>
     
-            { isAdmin ?
-                    <Link onClick={handleAddDish}>Novo prato</Link>:
-            <Link onClick={handleSignOut}>Sair</Link>}
+
+            <Link onClick={handleAddDish}>Novo prato</Link>
+            
+            <Link onClick={handleSignOut}>Sair</Link>
             
         </Form>
-      
       <Footer />
     </Container>
   )
