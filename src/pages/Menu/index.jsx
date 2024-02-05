@@ -5,7 +5,7 @@ import { Footer } from "../../components/Footer";
 import { useAuth } from "../../hooks/auth";
 
 export function Menu({  }) {
-  const { signOut } = useAuth();
+  const { signOut, isAdmin } = useAuth();
   const navigate = useNavigate();
 
     async function handleSignOut() {
@@ -41,7 +41,7 @@ export function Menu({  }) {
             </Search>
     
 
-            <Link to="/add">Novo prato</Link>
+            {isAdmin && <Link to="/add">Novo prato</Link>}
             
             <Link onClick={handleSignOut}>Sair</Link>
             

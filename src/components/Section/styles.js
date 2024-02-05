@@ -75,7 +75,7 @@ export const Container = styled.section`
                 flex-direction: row;
 
                 .cardSection {
-                    max-width: 200px;
+                    max-width: 370px;
                     display: flex;
                     flex-direction: row;
                     gap: 24px;

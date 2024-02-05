@@ -107,7 +107,7 @@ export const Container = styled.div`
   }
   
   @media (max-width: 1000px) {
-    min-width: 210px;
+    min-width: 300px;
     height: 100%;
     > .plates {
       >.clickplate {
