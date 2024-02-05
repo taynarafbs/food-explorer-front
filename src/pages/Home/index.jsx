@@ -8,12 +8,10 @@ import { Section } from "../../components/Section";
 import { useAuth } from "../../hooks/auth";
 
 export function Home() {
-    const {isAdmin} = useAuth();
+  const {isAdmin} = useAuth();
   
-
-  
-    return (
-      <Container>
+  return (
+    <Container>
         {isAdmin ? <HeaderAdmin /> : <HeaderUser />}
         <Form>
           <div className="ImageHome">
@@ -43,6 +41,6 @@ export function Home() {
           
         </Form>
         <Footer />
-      </Container>
-    );
+    </Container>
+  );
 }

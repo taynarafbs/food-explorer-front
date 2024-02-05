@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 304px;
   height: 462px;
-  flex-shrink: 0;
   border-radius: 8px;
   background: ${({ theme }) => theme.COLORS.DARK_200};
   padding: 2.4rem;
@@ -106,23 +105,28 @@ export const Container = styled.div`
       }
     }
   }
-
+  
   @media (max-width: 1000px) {
     min-width: 210px;
     height: 100%;
     > .plates {
-      main {
+      >.clickplate {
         > .imgPlate {
           align-items: center;
           display: flex;
           justify-content: center;
+          flex: 1;
+          
           img {
-            max-width: 88px;
+            max-width: 100%;
+            height: auto;
           }
         }
+        
         .informations {
           display: flex;
           gap: 1.2rem;
+          flex-direction: column;
 
           h1 {
             font-size: 1.2rem;
@@ -141,6 +145,7 @@ export const Container = styled.div`
             flex-direction: column;
             gap: 1.6rem;
             align-items: center;
+
             .decreaseOrAdd {
               display: flex;
               flex-direction: row;
@@ -158,7 +163,6 @@ export const Container = styled.div`
         }
       }
     }
-  }
-  
 
+  }
 `;

@@ -23,7 +23,6 @@ export const Container = styled.section`
                 flex-direction: space-between;
                 align-items: flex-end;
                 gap: 27px;
-                flex-shrink: 0;
                 scroll-snap-align: end;
             }
 
@@ -76,7 +75,7 @@ export const Container = styled.section`
                 flex-direction: row;
 
                 .cardSection {
-                    max-width: 100px;
+                    max-width: 200px;
                     display: flex;
                     flex-direction: row;
                     gap: 24px;
