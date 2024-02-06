@@ -39,7 +39,7 @@ export function EditDish() {
 
         const dish = response.data;
 
-        setName(dish.name);
+        setTitle(dish.name);
         setType(dish.type);
         setPrice(dish.price);
         setIngredients(dish.ingredients.map(ingredient => ingredient.name));

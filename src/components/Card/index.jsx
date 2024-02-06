@@ -34,8 +34,8 @@ export default function Card({ data, i }) {
   const { isAdmin } = useAuth();
   const [quantity, setQuantity] = useState(0);
 
-  function handleEditDish() {
-    navigate("/edit");
+  function handleEditDish(id) {
+    navigate(`/edit/${id}`);
   }
 
 
@@ -70,7 +70,7 @@ export default function Card({ data, i }) {
 
     <Container key={i}>
       {isAdmin ? (
-        <div className="icon" title="iconEdit" onClick={handleEditDish}>
+        <div className="icon" title="iconEdit" onClick={() => handleEditDish(data.id)}>
           <FiEdit2 />
         </div>
       ) : (
