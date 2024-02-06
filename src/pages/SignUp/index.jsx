@@ -6,7 +6,7 @@ import { api } from "../../services/api";
 import { Container, Form, Background } from './styles';
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
-import Polygon from "../../assets/Polygon1.png";
+import Polygon from "../../assets/polygon1.png";
 
 export function SignUp() {
     const [name, setName] = useState("");

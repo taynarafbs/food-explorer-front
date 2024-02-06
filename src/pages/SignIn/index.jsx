@@ -5,7 +5,7 @@ import { useAuth } from '../../hooks/auth';
 
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
-import Polygon from "../../assets/Polygon1.png";
+import Polygon from "../../assets/polygon1.png";
 
 import { Container, Form, Background } from './styles';
 
