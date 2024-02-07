@@ -7,28 +7,8 @@ import { Container, } from "./styles";
 import { api } from "../../services/api";
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/auth';
+import DefaultImg from "../../assets/default-plate.jpg"
 
-/*
-todo:
-- OK - fazer o wrapper pra nao ficar so em uma linha
-- OK - fazer o controle do amount correlacionado com o prato (pode ser o pedido mermo) +1 -1 nao mudar em todos
-- OK - fazer o controle de detalhes do prato (favoritado?)
-- OK botao favorito ser um toggle (liga e desliga)
-- OK - formacao de preço
-- rota de edicao
-*/
-
-/*
-  EXPRESSOES CONDICIONAIS
-  1 - {condicao && o que executa}
-  2 - {condicao ? faca isso : ou isso} - operador ternario
-  2.1 - é a mesma coisa que fazer:
-   if (condicao) {
-    faca isso
-   } else {
-    ou isso
-   }
-  */
 
 export default function Card({ data, i }) {
   const { isAdmin } = useAuth();
@@ -37,8 +17,6 @@ export default function Card({ data, i }) {
   function handleEditDish(id) {
     navigate(`/edit/${id}`);
   }
-
-
 
   const handleDecrease = () => {
     if (quantity > 0) {
@@ -79,7 +57,11 @@ export default function Card({ data, i }) {
 
       <div className="clickplate" onClick={() => navigate(`/dish/${data.id}`, { state: { data } })}>
         <button className="imgPlate" type="button">
-          <img src={`${api.defaults.baseURL}/files/${data.img}`} alt="imagem do prato" />
+          {data.img
+            ? <img src={`${api.defaults.baseURL}/files/${data.img}`} alt="imagem do prato" />
+            : <img src={DefaultImg} alt="imagem do prato" />
+          }
+          
         </button>
       </div>
 

@@ -16,17 +16,6 @@ import { useAuth } from "../../hooks/auth";
 
 export function Dish() {
 
-  /*
-  - chama pela api direto dishes/show/:id
-  - usar o use effect mermo
-  - useState usando o dish e setDish (singular pq vc ta dentro do detalhe)
-  - colocar as informacoes especificas aqui dentro
-  - header admin e header user 
-  
-  dica:
-  - use effect é o hook para ciclo de vida do react
-  */
-
   const { isAdmin } = useAuth();
   const navigate = useNavigate();
 
@@ -38,9 +27,6 @@ export function Dish() {
   const [formattedPrice, setFormattedPrice] = useState(0);
   const [dishDetails, setDishDetails] = useState([]);
 
-
-  // data é o index
-  // chama o dish do dishes na api e o data.id de cada prato
   useEffect(() => {
     async function fetchDishes() {
         const token = localStorage.getItem("@foodexplorer:token");
@@ -59,7 +45,8 @@ export function Dish() {
 
   useEffect(() => {
     if (data && data.price && !formattedPrice) {
-      const resultCalc = parsePrice(data.price.replace(',', '.'));
+      const priceString = typeof data.price === 'string' ? data.price.toString() : data.price.toString();
+      const resultCalc = parsePrice(priceString.replace(',', '.'));
       setFormattedPrice(resultCalc);
     }
   }, [data]);
@@ -81,9 +68,6 @@ export function Dish() {
   }
 
 
-  function handleEditDish() {
-    navigate("/edit");
-  }
 
   return (
     <Container>
@@ -116,7 +100,7 @@ export function Dish() {
 
             {isAdmin ? (
               <div className="dishEdit">
-                <Button title="Editar prato" onClick={handleEditDish} />
+                <Button title="Editar prato" onClick={()=> navigate(`/edit/${data.id}`)} />
               </div>
             ) : (
               <div className="quantity">

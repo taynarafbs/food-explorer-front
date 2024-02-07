@@ -12,11 +12,6 @@ import { TextArea } from "../../components/TextArea";
 import { BsUpload } from "react-icons/bs";
 
 
-// pra editar usar o useParams
-// vc precisa colocar o edit/:id como edit/5 que 5 é o prato
-// depois disso vc pega as infos ou se quiser vc joga no componente de <Edit se vc ja tiver isso la
-// se nao tiver faz o esquema do fetch e abraco
-
 export function EditDish() {
   const navigate = useNavigate();
   const params = useParams();
@@ -92,7 +87,7 @@ export function EditDish() {
     if (confirm("Certeza que quer excluir?") == true) {
       api.delete(`/dishes/${params.id}`).then(() => {
         alert("Prato removido com sucesso");
-        navigate(-1);
+        navigate("/");
       });
     }
   }
@@ -205,22 +200,6 @@ export function EditDish() {
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
-          {/* <div className="button">
-            <Button title={'Checar form'} 
-            onClick={() => {
-              console.log(
-                'form:',
-                {title},
-                {price},
-                {type},
-                {description},
-                {ingredients},
-                {newIngredient},
-                {img}
-              )
-            }}
-            />
-          </div> */}
 
           <div className="button">
             <Button

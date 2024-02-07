@@ -8,8 +8,6 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  
-
   > label {
   font-family: ${({ theme }) => theme.FONT.FONT_ROBOTO};
   font-weight: 400;

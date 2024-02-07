@@ -171,22 +171,6 @@ export function AddDish() {
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
-          {/* <div className="button">
-            <Button title={'Checar form'} 
-            onClick={() => {
-              console.log(
-                'form:',
-                {title},
-                {price},
-                {type},
-                {description},
-                {ingredients},
-                {newIngredient},
-                {img}
-              )
-            }}
-            />
-          </div> */}
           <div className="button">
             <Button title={'Salvar alterações'} onClick={handleSubmit} />
           </div>
