@@ -39,9 +39,10 @@ export function EditDish() {
 
         const dish = response.data;
 
-        setTitle(dish.name);
+        setTitle(dish.title);
         setType(dish.type);
         setPrice(dish.price);
+        setImg(dish.img);
         setIngredients(dish.ingredients.map(ingredient => ingredient.name));
         setDescription(dish.description);
         setShowLoading(false);
@@ -73,17 +74,27 @@ export function EditDish() {
       return alert("Preencha todos os campos!");
   }
 
-  api.post("/dishes", { title, price, type, description, ingredients })
+  api.put(`/dishes/${params.id}`, { title, price, type, description, ingredients })
       .then(() => {
-          alert("Prato cadastrado com sucesso!");
+          alert("Prato editado com sucesso!");
+          navigate(-1);
       })
       .catch(error => {
           if (error.response) {
               alert(error.response.data.message);
           } else {
-              alert("Não foi possível cadastrar o prato");
+              alert("Não foi possível editar o prato");
           }
       });
+  }
+
+  const handleDelete = () => {
+    if (confirm("Certeza que quer excluir?") == true) {
+      api.delete(`/dishes/${params.id}`).then(() => {
+        alert("Prato removido com sucesso");
+        navigate(-1);
+      });
+    }
   }
 
 
@@ -122,6 +133,7 @@ export function EditDish() {
                 placeholder="Ex.:Salada Ceasar"
                 id="name"
                 name="title"
+                value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
             </div>
@@ -129,7 +141,7 @@ export function EditDish() {
             <div className="category">
               <h5>Categoria</h5>
               <select 
-                  defaultValue={type}
+                  value={type}
                   onChange={(e) => setType(e.target.value)}
                 >
                 <option value="Refeições">Refeições</option>
@@ -175,6 +187,7 @@ export function EditDish() {
                 type="text"
                 placeholder="R$ 00,00"
                 name="price"
+                value={price}
                 onChange={(e) => setPrice(e.target.value)}
               />
             </div>
@@ -192,7 +205,7 @@ export function EditDish() {
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
-          <div className="button">
+          {/* <div className="button">
             <Button title={'Checar form'} 
             onClick={() => {
               console.log(
@@ -207,13 +220,14 @@ export function EditDish() {
               )
             }}
             />
-          </div>
+          </div> */}
 
           <div className="button">
             <Button
               title="Excluir prato"
               type="button"
               id="buttonExcluir"
+              onClick={handleDelete}
             />
             <Button title={'Salvar alterações'} onClick={handleSubmit} />
           </div>

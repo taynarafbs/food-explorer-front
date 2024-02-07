@@ -40,13 +40,14 @@ export function AddDish() {
       {ingredients},
       {img}
     )
-    if (!title || !price || !type || !description|| !img) {
+    if (!title || !price || !type || !description) {
       return alert("Preencha todos os campos!");
   }
 
   api.post("/dishes", { title, price, type, description, ingredients })
       .then(() => {
           alert("Prato cadastrado com sucesso!");
+          navigate(-1);
       })
       .catch(error => {
           if (error.response) {
@@ -170,7 +171,7 @@ export function AddDish() {
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
-          <div className="button">
+          {/* <div className="button">
             <Button title={'Checar form'} 
             onClick={() => {
               console.log(
@@ -185,7 +186,7 @@ export function AddDish() {
               )
             }}
             />
-          </div>
+          </div> */}
           <div className="button">
             <Button title={'Salvar alterações'} onClick={handleSubmit} />
           </div>
